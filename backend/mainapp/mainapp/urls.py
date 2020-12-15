@@ -13,9 +13,17 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+"""
+So basically we are saying that any route starting 
+with /api/ (such as http://www.example.com/api/...) should take us to 
+prediction.urls file which would contain the remainder of the route. 
+"""
 from django.contrib import admin
-from django.urls import path
+from django.urls import path , include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', include('prediction.urls')),
+
 ]
