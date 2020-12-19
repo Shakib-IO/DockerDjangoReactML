@@ -38,8 +38,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'prediction',
-    'rest_framewrok',
+    'users' ,
+    'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth',
+    'corsheaders',
 ]
+""" Corsheaders :Secondly, we need to enable Cross-Origin Resource Sharing (CORS) 
+So that our front-end can make a request to our back-end while running on the same physical server. 
+https://django-rest-auth.readthedocs.io/en/latest/index.html """
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -49,6 +56,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
 ]
 
 ROOT_URLCONF = 'mainapp.urls'

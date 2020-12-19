@@ -2,18 +2,23 @@ from django.shortcuts import render
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework.views APIView
+from rest_framework.views import APIView
 from prediction.apps import PredictionConfig
 import pandas as pd
 
-
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 """
 Basically this view takes JSON input data from a URL request(which we would define below), 
 processes the data and makes prediction from the loaded machine learning model defined in the apps.py file
 """
 # Create your views here.
-class IRIS_Model_Predict(APIVIEW):
+class IRIS_Model_Predict(APIView):
+    # we add this two because only login user can access or use this model
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+    
     def post(self , request , format = None):
         data = request.data
         keys = []
