@@ -18,6 +18,8 @@ import Container from '@material-ui/core/Container';
 import { connect } from 'react-redux';
 import * as actions from '../store/authActions'
 
+//To redirect to the home page once authenticated
+import { useHistory , useLocation } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -59,7 +61,6 @@ function Login(props) {
       case 'password': setPassword(event.target.value); break;
       default: return null;
     }
-
   };
 
   const handleSubmit = (e) => {

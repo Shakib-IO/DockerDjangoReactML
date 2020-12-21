@@ -13,7 +13,7 @@ function App(props) {
   return (
     <div className = "APP">
       <Layout {...props}>
-        <Urls {..props}/>
+        <Urls {...props}/>
       </Layout>
     </div>
   );

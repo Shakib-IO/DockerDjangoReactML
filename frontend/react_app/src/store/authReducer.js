@@ -4,7 +4,7 @@ import * as actionTypes from './authActionTypes' ;
 // Initial State
 // ########################################################
 
-export const InitialState = {
+export const initialState  = {
     error : null,
     loading : false,
     token : null
@@ -19,13 +19,14 @@ const updateObject = (oldObject , updatedProperties) => {
 }
 
 // Different Reducer Functions which change the store state
-const authStartReducer = (state , action) =>{
-    return updateObject(state,{
+const authStartReducer = (state , action) => { 
+    return updateObject(state, {
         error : null ,
         loading : true
     });
 }
-const authSuccessReducer = (state,action) =>{
+
+const authSuccessReducer = (state,action) => {
     return updateObject(state , {
         error : null ,
         loading : false,
@@ -45,12 +46,18 @@ const authLogoutReducer = (state , action) => {
 }
 
 //THe Main Reducer
-const Reducer = (state = InitialState , action) => {
+const Reducer = (state = initialState , action) => {
     switch(action.type){
-        case actionTypes.AUTH_START : return authStartReducer(state,action);
-        case actionTypes.AUTH_SUCCESS : return authSuccessReducer(state,action);
-        case actionTypes.AUTH_FAIL : return authFailReducer(state,action);
-        case actionTypes.AUTH_LOGOUT : return authLogoutReducer(state,action);
+        case actionTypes.AUTH_START : 
+            return  authStartReducer(state,action);
+        case actionTypes.AUTH_SUCCESS : 
+            return authSuccessReducer(state,action);
+        case actionTypes.AUTH_FAIL : 
+            return authFailReducer(state,action);
+        case actionTypes.AUTH_LOGOUT : 
+            return authLogoutReducer(state,action);
+        default :
+            return state ;
     }
 }
 
