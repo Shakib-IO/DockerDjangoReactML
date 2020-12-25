@@ -20,11 +20,10 @@ with /api/ (such as http://www.example.com/api/...) should take us to
 prediction.urls file which would contain the remainder of the route. 
 """
 from django.contrib import admin
-from django.urls import path , include
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/auth', include('users.urls')),
+    path('api/auth/', include('users.urls')),
     path('api/', include('prediction.urls')),
-
 ]

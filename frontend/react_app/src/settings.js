@@ -10,10 +10,9 @@ after which the user is automatically logged out from the browser */}
 
 let API_SERVER_VAL = '' ;
 
-switch(process.env.NODE_ENV)
-{
+switch (process.env.NODE_ENV) {
     case 'development':
-        API_SERVER_VAL =  'http://localhost:8000';
+        API_SERVER_VAL = 'http://localhost:8000';
         break;
     case 'production':
         API_SERVER_VAL = process.env.REACT_APP_API_SERVER;

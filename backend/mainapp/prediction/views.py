@@ -3,11 +3,12 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from prediction.apps import PredictionConfig
-import pandas as pd
 
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
+
+from prediction.apps import PredictionConfig
+import pandas as pd
 
 """
 Basically this view takes JSON input data from a URL request(which we would define below), 
@@ -26,6 +27,7 @@ class IRIS_Model_Predict(APIView):
         for key in data:
             keys.append(key)
             values.append(data[key])
+            
         X = pd.Series(values).to_numpy().reshape(1 , -1)
         loaded_mlmodel = PredictionConfig.mlmodel
         y_pred = loaded_mlmodel.predict(X)

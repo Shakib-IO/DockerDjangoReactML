@@ -16,7 +16,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 import { connect } from 'react-redux';
-import * as actions from '../store/authActions'
+import * as actions from '../store/authActions';
 
 //To redirect to the home page once authenticated
 import { useHistory , useLocation } from "react-router-dom";
@@ -125,4 +125,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Login)
+export default connect(null, mapDispatchToProps)(Login);

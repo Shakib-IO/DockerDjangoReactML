@@ -37,18 +37,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'prediction',
-    'users' ,
+
     'rest_framework',
     'rest_framework.authtoken',
     'rest_auth',
     'corsheaders',
+
+    'prediction',
+    'users',
 ]
-""" Corsheaders :Secondly, we need to enable Cross-Origin Resource Sharing (CORS) 
-So that our front-end can make a request to our back-end while running on the same physical server. 
-https://django-rest-auth.readthedocs.io/en/latest/index.html """
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -56,8 +56,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.security.SecurityMiddleware',
 ]
 
 ROOT_URLCONF = 'mainapp.urls'
@@ -130,9 +128,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-#Import from Local Settings 
+
+#########################################
+    ##  IMPORT LOCAL SETTINGS ##
+#########################################
 
 try:
-    from .local_settings import *
-except ImportError:
-    pass
+    from .local_settings import * 
+except ImportError: 
+    pass 

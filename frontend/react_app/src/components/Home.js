@@ -68,7 +68,7 @@ const marks = [{ value: 0 }, { value: 10 }];
 // The main Home component returned by this Module
 // ########################################################
 function Home(props) {
-    // Material UI Classes
+    // Material UI Classes 
     const classes = useStyles();
 
     // React hook state variable - Dimensions
@@ -91,7 +91,7 @@ function Home(props) {
         );
     };
 
-    // Function to make the predict API call and update the state variable - Prediction
+    // Function to make the predict API call and update the state variable - Prediction 
     const handlePredict = event => {
         // Submit Iris Flower measured dimensions as form data
         let irisFormData = new FormData();
@@ -212,5 +212,5 @@ function Home(props) {
         </React.Fragment>
     )
 }
-
+    
 export default Home

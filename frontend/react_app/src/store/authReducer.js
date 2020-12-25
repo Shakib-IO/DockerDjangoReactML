@@ -47,7 +47,8 @@ const authLogoutReducer = (state , action) => {
 
 //THe Main Reducer
 const Reducer = (state = initialState , action) => {
-    switch(action.type){
+    switch(action.type)
+    {
         case actionTypes.AUTH_START : 
             return  authStartReducer(state,action);
         case actionTypes.AUTH_SUCCESS : 
